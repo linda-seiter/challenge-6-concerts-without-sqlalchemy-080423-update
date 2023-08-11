@@ -163,7 +163,7 @@ build out any helper methods if needed.
   - Takes a date (string) as argument
   - Finds and returns the first concert object on that date at that venue
   - Returns `None` if there is no concert on that date at that venue
-
+  - Uncomment lines 139-149 in the venue_test file
 ### Bonus: For any invalid inputs raise an `Exception`.
 
 - First, **comment out** the following lines
