@@ -82,7 +82,7 @@ class TestBand:
     def test_concerts(self):
         """band has many concerts"""
         band = Band(name="boygenius", hometown="NYC")
-        venue = Venue(title="Theatre", city="NYC")
+        venue = Venue(name="Theatre", city="NYC")
         concert_1 = Concert(date="Nov 22", band=band, venue=venue)
         concert_2 = Concert(date="Nov 27", band=band, venue=venue)
 
@@ -93,7 +93,7 @@ class TestBand:
     def test_concerts_of_type_concert(self):
         """concerts must be of type Concert"""
         band = Band(name="boygenius", hometown="NYC")
-        venue = Venue(title="Theatre", city="NYC")
+        venue = Venue(name="Theatre", city="NYC")
         Concert(date="Nov 22", band=band, venue=venue)
         Concert(date="Nov 27", band=band, venue=venue)
 
@@ -102,8 +102,8 @@ class TestBand:
     def test_venues(self):
         """band has many venues"""
         band = Band(name="boygenius", hometown="NYC")
-        venue_1 = Venue(title="Theatre", city="NYC")
-        venue_2 = Venue(title="Ace of Spades", city="SAC")
+        venue_1 = Venue(name="Theatre", city="NYC")
+        venue_2 = Venue(name="Ace of Spades", city="SAC")
         Concert(date="Nov 22", band=band, venue=venue_1)
         Concert(date="Nov 27", band=band, venue=venue_2)
 
@@ -114,8 +114,8 @@ class TestBand:
     def test_venues_of_type_venue(self):
         """venues must be of type Venue"""
         band = Band(name="boygenius", hometown="NYC")
-        venue_1 = Venue(title="Theatre", city="NYC")
-        venue_2 = Venue(title="Ace of Spades", city="SAC")
+        venue_1 = Venue(name="Theatre", city="NYC")
+        venue_2 = Venue(name="Ace of Spades", city="SAC")
         Concert(date="Nov 22", band=band, venue=venue_1)
         Concert(date="Nov 27", band=band, venue=venue_2)
 
@@ -124,8 +124,8 @@ class TestBand:
     def test_venues_are_unique(self):
         """venues are unique"""
         band = Band(name="boygenius", hometown="NYC")
-        venue_1 = Venue(title="Theatre", city="NYC")
-        venue_2 = Venue(title="Ace of Spades", city="SAC")
+        venue_1 = Venue(name="Theatre", city="NYC")
+        venue_2 = Venue(name="Ace of Spades", city="SAC")
         Concert(date="Nov 22", band=band, venue=venue_1)
         Concert(date="Nov 27", band=band, venue=venue_2)
         Concert(date="Nov 29", band=band, venue=venue_2)
@@ -138,8 +138,8 @@ class TestBand:
     def test_play_in_venue(self):
         """play_in_venue adds a concert for the band()"""
         band = Band(name="boygenius", hometown="NYC")
-        venue = Venue(title="Theatre", city="NYC")
-        venue2 = Venue(title="Ace of Spades", city="SAC")
+        venue = Venue(name="Theatre", city="NYC")
+        venue2 = Venue(name="Ace of Spades", city="SAC")
         concert_1 = band.play_in_venue(venue=venue, date="Nov 22")
 
         assert len(band.concerts()) == 1
@@ -148,7 +148,7 @@ class TestBand:
         assert isinstance(concert_1, Concert)
 
         concert_2 = band.play_in_venue(venue=venue2, date="Nov 27")
-        assert len(band.concerts) == 2
+        assert len(band.concerts()) == 2
         assert band.concerts()[1].band == band
         assert band.concerts()[1].venue == venue2
         assert isinstance(concert_2, Concert)
@@ -156,8 +156,8 @@ class TestBand:
     def test_all_introductions(self):
         """returns all introductions for the band"""
         band = Band(name="boygenius", hometown="NYC")
-        venue = Venue(title="Theatre", city="NYC")
-        venue2 = Venue(title="Ace of Spades", city="SAC")
+        venue = Venue(name="Theatre", city="NYC")
+        venue2 = Venue(name="Ace of Spades", city="SAC")
         band.play_in_venue(venue=venue, date="Nov 22")
         band.play_in_venue(venue=venue2, date="Nov 27")
 

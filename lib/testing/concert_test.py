@@ -129,8 +129,8 @@ class TestConcert:
         band.play_in_venue(venue=venue, date="Nov 3")
         band.play_in_venue(venue=venue2, date="Nov 5")
 
-        assert band.concerts[0].hometown_show() == True
-        assert band.concerts[1].hometown_show() == False
+        assert band.concerts()[0].hometown_show() == True
+        assert band.concerts()[1].hometown_show() == False
 
     def test_introduction(self):
         """returns a string with the band's introduction for this concert"""
@@ -142,10 +142,10 @@ class TestConcert:
         band.play_in_venue(venue=venue2, date="Nov 5")
 
         assert (
-            band.concerts[0].introduction()
+            band.concerts()[0].introduction()
             == "Hello NYC!!!!! We are boygenius and we're from NYC"
         )
         assert (
-            band.concerts[1].introduction()
+            band.concerts()[1].introduction()
             == "Hello Sac!!!!! We are boygenius and we're from NYC"
         )

@@ -146,6 +146,6 @@ class TestVenue:
     #     band.play_in_venue(venue=venue, date="Nov 22")
     #     band.play_in_venue(venue=venue2, date="Nov 27")
 
-    #     assert venue.concert_on("Nov 22") == band.concerts[0]
-    #     assert venue2.concert_on("Nov 27") == band.concerts[1]
+    #     assert venue.concert_on("Nov 22") == band.concerts()[0]
+    #     assert venue2.concert_on("Nov 27") == band.concerts()[1]
     #     assert venue.concert_on("Nov 25") is None
