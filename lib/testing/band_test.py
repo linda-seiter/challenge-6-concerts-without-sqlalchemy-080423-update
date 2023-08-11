@@ -136,7 +136,7 @@ class TestBand:
         assert venue_2 in band.venues()
 
     def test_play_in_venue(self):
-        """play_in_venue adds a concert for the band()"""
+        """creates and returns a new concert for that band"""
         band = Band(name="boygenius", hometown="NYC")
         venue = Venue(name="Theatre", city="NYC")
         venue2 = Venue(name="Ace of Spades", city="SAC")

@@ -1,7 +1,5 @@
 import pytest
 
-import pytest
-
 from classes.band import Band
 from classes.venue import Venue
 from classes.concert import Concert

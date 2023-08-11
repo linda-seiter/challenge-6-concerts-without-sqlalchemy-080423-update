@@ -94,7 +94,7 @@ class TestConcert:
         assert concert.band == band
 
     def test_band_of_type_band(self):
-        """band is of type Band"""
+        """concert's band is of type Band"""
         band = Band(name="boygenius", hometown="NYC")
         venue = Venue(name="Theatre", city="NYC")
         concert = Concert(date="Nov 5", band=band, venue=venue)
@@ -110,7 +110,7 @@ class TestConcert:
         #     concert.band = "My friends"
 
     def test_band_is_mutable(self):
-        """band is mutable"""
+        """concert's band is mutable"""
         band_1 = Band(name="boygenius", hometown="NYC")
         band_2 = Band(name="girlgenius", hometown="Boston")
         venue_1 = Venue(name="Theatre", city="NYC")
@@ -121,7 +121,7 @@ class TestConcert:
         assert isinstance(concert.band, Band)
 
     def test_hometown_show(self):
-        """returns true if concert is in band's hometown"""
+        """returns True if concert is in band's hometown, False otherwise"""
         band = Band(name="boygenius", hometown="NYC")
         venue = Venue(name="Theatre", city="NYC")
         venue2 = Venue(name="Ace of Spades", city="Sac")
