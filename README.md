@@ -20,8 +20,8 @@ For our purposes, a `Band` has many `Concerts`, a `Venue` has many `Concerts`s, 
 
 ## Instructions
 
-To get started, run `pipenv install; pipenv shell` while inside of this
-directory.
+To get started, run `pipenv install` while inside of this directory.
+Then run `pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
@@ -53,83 +53,130 @@ comments describing your progress.
 
 ## Deliverables
 
-Write the following methods in the classes in the files provided. Feel free to
+Write the following properties and methods in the classes in the files provided. Feel free to
 build out any helper methods if needed.
 
-> **Note: all setters should raise `Exception` if their criteria are not met.**
-
-### Initializers, Readers, and Writers
+### Initializers and Properties
 
 #### Band
 
-- `Band __init__(name, hometown)`
-  - should initialize with a name (string) and hometown (string)
-- `Band property name()`
-  - should return the `Band`'s name
-  - must be a string of greater than zero characters
-- `Band property hometown()`
-  - should return the `Band`'s hometown
-  - must be a string of greater than zero characters
+- `Band __init__(self, name, hometown)`
+  - Band is initialized with a name and hometown
+- `Band property name`
+  - Returns the band's name
+  - Names must be of type `str`
+  - Must be greater than zero characters
+  - Should **be able** to change after the band is instantiated
+- `Band property hometown`
+  - Returns the band's hometown
+  - Hometowns must be of type `str`
+  - Must be greater than zero characters
+  - Should **not be able** to change after the band is instantiated
+  - _hint: hasattr()_
 
 #### Venue
 
-- `Venue __init__(title, city)`
-  - should initialize with a title (string) and city (string)
-- `Venue property title()`
-  - should return the title of the venue
-  - must be a string of greater than zero characters
-- `Venue property city()`
-  - should return the city of the venue
-  - must be a string of greater than zero characters
+- `Venue __init__(self, name, city)`
+  - Venue is initialized with a name and city
+- `Venue property name`
+  - Returns the venue's name
+  - names must be of type `str`
+  - Must be greater than zero characters
+  - Should **be able** to change after the venue is instantiated
+- `Venue property city`
+  - Returns the venue's city
+  - Cities must be of type `str`
+  - Must be greater than zero characters
+  - Should **be able** to change after the venue is instantiated
 
 #### Concert
 
 - `Concert __init__(self, date, band, venue)`
-  - should initialize with a date (string), band, and venue
-  - date must be a string of greater than zero characters
+  - Concert is initialized with a date, a `Band` instance, and `Venue` instance
+- `Concert property date`
+  - Returns the concert's date
+  - Dates must be of type `str`
+  - Must be greater than zero characters
+  - Should **be able** to change after the concert is instantiated
 
-### Object Relationship Methods and Attributes
+### Object Relationship Methods and Properties
 
 #### Concert
 
 - `Concert band`
-  - should return the `Band` instance for this concert
+  - Returns the `Band` instance for this concert
+  - Must be of type `Band`
+  - Should **be able** to change after the concert is instantiated
 - `Concert venue`
-  - should return the `Venue` instance for this concert
+  - Returns the `Venue` instance for this concert
+  - Must be of type `Venue`
+  - Should **be able** to change after the concert is instantiated
 
 #### Venue
 
-- `Venue concerts`
-  - returns a list of all the concerts for the venue
-- `Venue bands`
-  - returns a list of all the bands for the venue
+- `Venue concerts()`
+  - Returns a list of all the concerts for the venue
+  - Concerts must be of type `Concert`
+  - Returns `None` if there are no concerts for that venue
+- `Venue bands()`
+  - Returns a **unique** list of all the bands for the venue
+  - Bands must be of type `Band`
+  - Returns `None` if there are no concerts for that venue
 
 #### Band
 
-- `Band property concerts`
-  - should return a list of all the concerts that the band has played in
+- `Band property concerts()`
+  - Returns a list of all the concerts that the band has played in
+  - Concerts must be of type `Concert`
+  - Returns `None` if there are no concerts for that band
+- `Band property venues()`
+  - Returns a **unique** list of all the venues that the band has played in
+  - Venues must be of type `Venue`
+  - Returns `None` if there are no concerts for that band
 
-### Aggregate Methods
+### Aggregate and Association Methods
 
 #### Concert
 
 - `Concert hometown_show()`
-  - returns `true` if the concert is in the band's hometown, `false` if it is not
+  - Returns `True` if the concert is in the band's hometown
+  - Returns `False` if it is not
 - `Concert introduction()`
-  - returns a string with the band's introduction for this concert
-  - an introduction is in the form: `"Hello {insert city name here}!!!!!, we are {insert band name here} and we're from {insert hometown here}"`
+  - Returns a string with the band's introduction for this concert
+  - An introduction is in the form: `"Hello {insert city name here}!!!!! We are {insert band name here} and we're from {insert hometown here}"`
 
 #### Band
 
 - `Band play_in_venue(venue, date)`
-  - takes a venue and date (as a string) as arguments, and creates a new concert for the band in that venue on that date
+  - Takes a `Venue` instance and a date as arguments
+  - Creates and returns a new concert object for the band in that venue on that date
 - `Band all_introductions()`
-  - returns a list of strings representing all the introductions for this band
-  - each introduction is in the form `"Hello {insert city name here}!!!!!, we are {insert band name here} and we're from {insert hometown here}"`
+  - Returns a list of strings representing all the introductions for this band
+  - Each introduction is in the form `"Hello {insert city name here}!!!!! We are {insert band name here} and we're from {insert hometown here}"`
+  - Returns `None` if there are no concerts
+
+### Bonus: Aggregate and Association Method
 
 #### Venue
 
 - `Venue concert_on(date)`
-  - takes a date (string) as argument
-  - finds and returns the first concert on that date at that venue
-  - if there is no concert on that date at that venue, returns `None`
+  - Takes a date (string) as argument
+  - Finds and returns the first concert object on that date at that venue
+  - Returns `None` if there is no concert on that date at that venue
+
+### Bonus: For any invalid inputs raise an `Exception`.
+
+- First, **comment out** the following lines
+  - **band_test.py**
+    - lines 
+  - **concert_test.py**
+    - lines 
+  - **venue_test.py**
+    - lines 
+- Then, **uncomment** the following lines in the test files
+  - **band_test.py**
+    - lines 
+  - **concert_test.py**
+    - lines 
+  - **venue_test.py**
+    - lines 
