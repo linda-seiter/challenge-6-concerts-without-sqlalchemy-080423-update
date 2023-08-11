@@ -168,15 +168,15 @@ build out any helper methods if needed.
 
 - First, **comment out** the following lines
   - **band_test.py**
-    - lines 
+    - lines 28-29, 41-42, and 66-67
   - **concert_test.py**
-    - lines 
+    - lines 30-31, 46-47, 68-69, and 103-104
   - **venue_test.py**
-    - lines 
+    - lines 27-28, 40-41, 63-64, and 76-77
 - Then, **uncomment** the following lines in the test files
   - **band_test.py**
-    - lines 
+    - lines 32-33, 45-46, 70-71, and 79-80
   - **concert_test.py**
-    - lines 
+    - lines 34-35, 50-51, 74-75, and 109-110
   - **venue_test.py**
-    - lines 
+    - lines 31-32, 44-45, 67-68, and 80-81
