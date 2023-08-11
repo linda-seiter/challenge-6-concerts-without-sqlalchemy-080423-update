@@ -149,3 +149,17 @@ class TestConcert:
             band.concerts()[1].introduction()
             == "Hello Sac!!!!! We are boygenius and we're from NYC"
         )
+
+    def test_get_all_concerts(self):
+        """Concert class has all attribute"""
+        Concert.all = []
+        band = Band(name="boygenius", hometown="NYC")
+        venue = Venue(name="Theatre", city="NYC")
+        venue2 = Venue(name="Ace of Spades", city="Sac")
+
+        concert_1 = band.play_in_venue(venue=venue, date="Nov 3")
+        concert_2 = band.play_in_venue(venue=venue2, date="Nov 5")
+
+        assert len(Concert.all) == 2
+        assert concert_1 in Concert.all
+        assert concert_2 in Concert.all
