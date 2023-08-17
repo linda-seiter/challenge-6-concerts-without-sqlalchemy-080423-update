@@ -1,11 +1,11 @@
 import pytest
-from classes.band import Band
-from classes.venue import Venue
-from classes.concert import Concert
+from classes.many_to_many import Band
+from classes.many_to_many import Venue
+from classes.many_to_many import Concert
 
 
 class TestBand:
-    """Band in band.py"""
+    """Band in many_to_many.py"""
 
     def test_has_name(self):
         """Band is instantiated with a name"""

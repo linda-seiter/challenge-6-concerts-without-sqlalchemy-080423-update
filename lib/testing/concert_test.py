@@ -1,12 +1,12 @@
 import pytest
 
-from classes.band import Band
-from classes.venue import Venue
-from classes.concert import Concert
+from classes.many_to_many import Band
+from classes.many_to_many import Venue
+from classes.many_to_many import Concert
 
 
 class TestConcert:
-    """Concert in concert.py"""
+    """Concert in many_to_many.py"""
 
     def test_has_date(self):
         """Concert is initialized with a date"""
