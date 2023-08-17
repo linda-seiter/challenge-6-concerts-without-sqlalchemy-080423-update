@@ -3,37 +3,111 @@ class Band:
         self.name = name
         self.hometown = hometown
 
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        if isinstance(name, str) and name:
+            self._name = name
+
+    @property
+    def hometown(self):
+        return self._hometown
+
+    @hometown.setter
+    def hometown(self, hometown):
+        if isinstance(hometown, str) and hometown and not hasattr(self, "hometown"):
+            self._hometown = hometown
+
     def concerts(self):
-        pass
+        return [concert for concert in Concert.all if concert.band == self]
 
     def venues(self):
-        pass
+        return list({concert.venue for concert in self.concerts()})
 
     def play_in_venue(self, venue, date):
-        pass
+        return Concert(date=date, band=self, venue=venue)
 
     def all_introductions(self):
-        pass
+        return [concert.introduction() for concert in self.concerts()]
+
     
 class Concert:
+    all = []
+
     def __init__(self, date, band, venue):
         self.date = date
         self.band = band
         self.venue = venue
+        type(self.all.append(self))
+
+    @property
+    def date(self):
+        return self._date
+
+    @date.setter
+    def date(self, date):
+        if isinstance(date, str) and date:
+            self._date = date
+
+    @property
+    def band(self):
+        return self._band
+
+    @band.setter
+    def band(self, band):
+        if isinstance(band, Band):
+            self._band = band
+
+    @property
+    def venue(self):
+        return self._venue
+
+    @venue.setter
+    def venue(self, venue):
+        if isinstance(venue, Venue):
+            self._venue = venue
 
     def hometown_show(self):
-        pass
+        return self.band.hometown == self.venue.city
 
     def introduction(self):
-        pass
+        return f"Hello {self.venue.city}!!!!! We are {self.band.name} and we're from {self.band.hometown}"
+
+
 
 class Venue:
-    def __init__(self, title, city):
-        self.title = title
+    def __init__(self, name, city):
+        self.name = name
         self.city = city
 
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        if isinstance(name, str) and name:
+            self._name = name
+
+    @property
+    def city(self):
+        return self._city
+
+    @city.setter
+    def city(self, city):
+        if isinstance(city, str) and city:
+            self._city = city
+
     def concerts(self):
-        pass
+        return [concert for concert in Concert.all if concert.venue == self]
 
     def bands(self):
-        pass
+        return list({concert.band for concert in self.concerts()})
+
+    def concert_on(self, date):
+        return next(
+            (concert for concert in self.concerts() if concert.date == date), None
+        )
