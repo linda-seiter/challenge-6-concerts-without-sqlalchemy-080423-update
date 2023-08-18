@@ -4,11 +4,13 @@ For this assignment, we'll be working with a Concert domain.
 
 We have three models: `Band`, `Concert`, and `Venue`.
 
-For our purposes, a `Band` has many `Concerts`, a `Venue` has many `Concerts`s, and a `Concert` belongs to a `Band` and to a `Venue`.
+For our purposes, a `Band` has many `Concerts`, a `Venue` has many `Concerts`s,
+and a `Concert` belongs to a `Band` and to a `Venue`.
 
 `Band` - `Venue` is a many to many relationship.
 
-**Note**: You should draw your domain on paper or on a whiteboard _before you start coding_. Remember to identify a single source of truth for your data.
+**Note**: You should draw your domain on paper or on a whiteboard _before you
+start coding_. Remember to identify a single source of truth for your data.
 
 ## Topics
 
@@ -20,8 +22,8 @@ For our purposes, a `Band` has many `Concerts`, a `Venue` has many `Concerts`s, 
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory.
-Then run `pipenv shell` to jump into the shell.
+To get started, run `pipenv install` while inside of this directory. Then run
+`pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
@@ -49,12 +51,12 @@ extract it into a shared helper method.
 expect. If you have any methods that are not working yet, feel free to leave
 comments describing your progress.
 
-***
+---
 
 ## Deliverables
 
-Write the following properties and methods in the classes in the files provided. Feel free to
-build out any helper methods if needed.
+Write the following properties and methods in the classes in the files provided.
+Feel free to build out any helper methods if needed.
 
 ### Initializers and Properties
 
@@ -143,16 +145,19 @@ build out any helper methods if needed.
   - Returns `False` if it is not
 - `Concert introduction()`
   - Returns a string with the band's introduction for this concert
-  - An introduction is in the form: `"Hello {insert city name here}!!!!! We are {insert band name here} and we're from {insert hometown here}"`
+  - An introduction is in the form:
+    `"Hello {insert city name here}!!!!! We are {insert band name here} and we're from {insert hometown here}"`
 
 #### Band
 
 - `Band play_in_venue(venue, date)`
   - Takes a `Venue` instance and a date as arguments
-  - Creates and returns a new concert object for the band in that venue on that date
+  - Creates and returns a new concert object for the band in that venue on that
+    date
 - `Band all_introductions()`
   - Returns a list of strings representing all the introductions for this band
-  - Each introduction is in the form `"Hello {insert city name here}!!!!! We are {insert band name here} and we're from {insert hometown here}"`
+  - Each introduction is in the form
+    `"Hello {insert city name here}!!!!! We are {insert band name here} and we're from {insert hometown here}"`
   - Returns `None` if there are no concerts
 
 ### Bonus: Aggregate and Association Method
@@ -164,18 +169,19 @@ build out any helper methods if needed.
   - Finds and returns the first concert object on that date at that venue
   - Returns `None` if there is no concert on that date at that venue
   - Uncomment lines 139-149 in the venue_test file
+
 ### Bonus: For any invalid inputs raise an `Exception`.
 
 - First, **comment out** the following lines
   - **band_test.py**
-    - lines 28-29, 41-42, and 66-67
+    - lines 28-29, 41-42, 62-64, and 67-68
   - **concert_test.py**
     - lines 30-31, 46-47, 68-69, and 103-104
   - **venue_test.py**
     - lines 27-28, 40-41, 63-64, and 76-77
 - Then, **uncomment** the following lines in the test files
   - **band_test.py**
-    - lines 32-33, 45-46, 70-71, and 79-80
+    - lines 32-33, 45-46, 71-72, and 80-81
   - **concert_test.py**
     - lines 34-35, 50-51, 74-75, and 109-110
   - **venue_test.py**
