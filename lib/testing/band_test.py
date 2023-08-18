@@ -58,6 +58,7 @@ class TestBand:
         band_1 = Band(name="boygenius", hometown="NYC")
         assert isinstance(band_1.hometown, str)
 
+        # comment out the next three lines if using Exceptions
         band_1.hometown = "Boston"
         assert isinstance(band_1.hometown, str)
         assert band_1.hometown == "NYC"
